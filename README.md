@@ -31,7 +31,6 @@ docker-compose up --build
 Acesse:
 
 Frontend: http://localhost:4200
-
 Backend (Swagger): http://localhost:8080/swagger-ui.html
 
 📖 Documentação da API
@@ -39,33 +38,24 @@ Backend (Swagger): http://localhost:8080/swagger-ui.html
 http://localhost:8080/swagger-ui.html
 
 ☁️ Deploy na Nuvem (opcional)
+
 A aplicação foi publicada em:
+
 🔗 Frontend: https://sulwork-cafe-front.railway.app
 🔗 Backend: https://sulwork-cafe-back.railway.app/api
 
 Railway ou Render pode ser usado para subir o frontend e backend.
 
 🗃️ Estrutura Docker
+
 O projeto usa docker-compose.yml para orquestrar os seguintes serviços:
 
 db: PostgreSQL 15
-
 backend: aplicação Spring Boot (porta 8080)
-
 frontend: aplicação Angular (porta 4200)
 
+Swagger ativado no backend
 
----
-
-### 📦 3. **Swagger ativado no backend**
-
-Você já usou o Swagger? Se ainda não, adicione ao seu `pom.xml` e habilite no Spring Boot. Posso te ajudar com isso.
-
----
-
-### 🌐 4. **Deploy Railway (ou Render)**
-
-Se quiser ajuda com o deploy no [Railway](https://railway.app/) ou [Render](https://render.com/), posso te guiar passo a passo. Ambos oferecem versão gratuita.
 
 
 
