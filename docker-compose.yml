@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: sulwork-db
+    restart: always
+    environment:
+      POSTGRES_DB: sulwork
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - sulwork-network
+
+  backend:
+    build:
+      context: .
+    container_name: sulwork-cafe
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/sulwork
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=none
+    networks:
+      - sulwork-network
+
+  frontend:
+    build:
+      context: ../sulwork-cafe-frontend
+    container_name: sulwork-frontend
+    restart: always
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - sulwork-network
+
+volumes:
+  pgdata:
+
+networks:
+  sulwork-network:
+    driver: bridge
