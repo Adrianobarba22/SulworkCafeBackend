@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.7.3</version> <!-- ou a mais recente -->
+			<version>42.7.5</version> <!-- ou a mais recente -->
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
